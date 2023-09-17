@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MENU CART</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+    background-color:black ;
+}
+.heading{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin-bottom: 30px;
+    padding: 30px 0;
+    grid-column: 1/-1;
+    text-align: center;
+}
+.CART a{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: cursive;
+}
+.CART ion-icon{
+    vertical-align: bottom;
+    font-size: 25px;
+    padding-right: 5px;;
+}
+.products-container{
+    color: antiquewhite;
+    max-width: 650px;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 25px;
+
+}
+.products-container ion-icon{
+    font-size: 25px;
+    background-color: red;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: antiquewhite;
+}
+.product-header{
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid lightgray;
+    margin: 0 auto;
+    color: antiquewhite;
+
+}
+.product-title{
+    width: 35%;
+    border-bottom: 1px solid lightgray;
+    color: antiquewhite;
+    
+}
+.price{
+    width: 22%;
+    border-bottom: 1px solid lightgray; 
+    display: flex;
+    align-items: center;
+    justify-content:safe;
+    color: antiquewhite;
+    
+}
+.quantity{
+    width: 30%;
+    border-bottom: 1px solid lightgray; 
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    color: antiquewhite;
+}
+.total{
+    width: 13%;
+     border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    color: antiquewhite;
+} 
+.product{
+    width: 225px;
+    display: flex;
+    justify-content:baseline;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid lightgray;
+    color: antiquewhite;
+}
+.menutotalcontainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+}
+.basketTotalTitle{
+    width: 31%;
+}
+.menutotal{
+    width: 13%;
+}
+.products{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#form{
+  text-align: center;
+}
+#form button{
+   border: 5px solid rgb(255, 103, 2);
+   border-radius: 0.75rem;
+   background-color: #ffffff;
+   box-sizing: border-box;
+   color: #ffffff;
+   font-size: 1.125rem;
+   font-weight: 600;
+   line-height: 1.5rem;
+   padding: .5rem 1rem;
+   text-align: center;
+   margin: 2cm;
+   
+}
+#form button:hover{
+    background-color:rgb(255, 103, 2); 
+}
+a{
+    text-decoration: none;
+    color: black;
+    background-color: #ffffff;
+}
+a:hover{
+    background-color:rgb(255, 103, 2); 
+}
+input{
+    border: 5px solid rgb(255, 103, 2);
+   border-radius: 0.75rem;
+   background-color: #ffffff;
+   box-sizing: border-box;
+   color: #000000;
+   font-size: 1.125rem;
+   font-weight: 600;
+   line-height: 1.5rem;
+   padding: .5rem 1rem;
+   text-align: center;
+   margin: 2cm;
+}
+input:hover{
+    background-color:rgb(255, 103, 2); 
+}
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>SPICE KITCHEN</h1>
+        <h3>&mdash; MENU-CART &mdash;</h3>
+        <ul class="CART"><a  href="cart.js" target="_blank">
+            <span><i class="fa fa-shopping-cart" style="font-size:50px"></i></span></a></ul>
+    </div>
+    <div class="products-container">
+        <div class="product-header">
+            <h5 class="product-title">ITEM</h5>
+            <h5 class="price">PRICE</h5>
+            <h5 class="quantity">QUANTITY</h5>
+            <h5 class="total">TOTAL</h5>
+        </div>
+        <div class="products">        
+        </div>
+    </div>
+    <div >
+     <form id="form">
+        <button><a href="menu.html" target="_parent">ADD MORE</a></button></a>
+       <button><a href="map.html" target="_parent">TAKEAWAY</a></button></a>
+       <button><a href="order.html" target="_parent">PLACEORDER</a></button></a>
+       <input type="button" onclick="clearzg()" value="CANCEL_ORDER">
+     </form>   
+    </div>
+   
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script  >
+        let carts = document.querySelectorAll('.add-cart');
+let products = [
+    {
+        name: "French Fries",
+        price: 99,
+        incart: 0,
+    },
+    {
+        name: "Veg Manchurian",
+        price: 139,
+        incart: 0,
+    },
+    {
+        name: "Chilli Panner",
+        price: 189,
+        incart: 0,
+    },
+    {
+        name: "Butter Naan",
+        price: 49,
+        incart: 0,
+    },
+    {
+        name: "Panner Butter Masala",
+        price: 239,
+        incart: 0,
+    },
+    {
+        name: "Veg Dum Biryani",
+        price: 239,
+        incart: 0,
+    },
+    {
+        name: "Butter Chicken",
+        price: 299,
+        incart: 0,
+    },
+    {
+        name: "Chicken Lollipop",
+        price: 149,
+        incart: 0,
+    },
+    {
+        name: "Fish Fingers",
+        price: 289,
+        incart: 0,
+    },
+    {
+        name: "Mutton Curry",
+        price: 349,
+        incart: 0,
+    },
+    {
+        name: "Hyderabadi Chicken Biryani",
+        price: 289,
+        incart: 0,
+    },
+    {
+        name: "Hyderabadi Mutton Biryani",
+        price: 399,
+        incart: 0,
+    },
+    {
+        name: "Chocolate Hazelnut dessert",
+        price: 289,
+        incart: 0,
+    },
+    {
+        name: "Pista IceCream",
+        price: 199,
+        incart: 0,
+    },
+    {
+        name: "Oreo Cheesecake",
+        price: 249,
+        incart: 0,
+    },
+
+
+];
+
+for (let i = 0; i < carts.length; i++) {
+    carts[i].addEventListener('click', () => {
+        cartnumber(products[i]);
+        totalcost(products[i]);
+    })
+}
+
+function onloadcartnumbers() {
+    let productnumbers = sessionStorage.getItem('cartnumber');
+    if (productnumbers) {
+        document.querySelector('.CART span').textContent = productnumbers;
+    }
+}
+
+function cartnumber(product) {
+    let productnumbers = sessionStorage.getItem('cartnumber');
+    productnumbers = parseInt(productnumbers);
+    if (productnumbers) {
+        sessionStorage.setItem('cartnumber', productnumbers + 1);
+        document.querySelector('.CART span').textContent = productnumbers + 1;
+    } else {
+        sessionStorage.setItem('cartnumber', 1);
+        document.querySelector('.CART span').textContent = 1;
+    }
+    setItems(product);
+}
+
+function setItems(product){
+    let cartItems = sessionStorage.getItem('productincart');
+    cartItems=JSON.parse(cartItems);
+    if(cartItems!= null){
+        if(cartItems[product.name] == undefined){
+            cartItems={
+                ...cartItems,
+            [product.name]:product
+            }
+            
+        }
+        cartItems[product.name].incart+=1;
+    }else{
+        product.incart = 1;
+    cartItems={
+        [product.name]:product
+    }
+    }
+    sessionStorage.setItem("productincart",JSON.stringify(cartItems));
+}
+function totalcost(product){
+    let cartCost=sessionStorage.getItem('totalcost');
+
+    if(cartCost!=null){
+        cartCost=parseInt(cartCost);
+        sessionStorage.setItem('totalcost',cartCost + product.price);
+    }else{
+        sessionStorage.setItem('totalcost',product.price);
+    }
+    
+}
+function display(){
+    let cartItems = sessionStorage.getItem("productincart");
+    cartItems=JSON.parse(cartItems);
+    let productContainer=document.querySelector(".products");
+    let cartCost=sessionStorage.getItem('totalcost');
+    if(cartItems && productContainer){
+        productContainer.innerHTML= '';
+        Object.values(cartItems).map(item => {
+            productContainer.innerHTML+= `
+            <div class="product">
+                
+
+                <span>${item.name}</span>
+            </div>
+            <div class="price">₹${item.price}</div>
+            <div class="quantity">
+                
+                <span>${item.incart}</span>
+                
+            </div>
+            <div class="total">₹${item.incart * item.price}</div>
+            `;
+        });
+        productContainer.innerHTML += `
+            <div class="menutotalcontainer">
+                <h4 class="basketTotalTitle">
+                    Menu Total
+                </h4>
+                <h4 class="menutotal">
+                    ₹${cartCost}
+                </h4>
+
+            </div>
+        `;
+        
+    }
+}
+function clearzg(){
+    if (confirm("ORDER IS CANCELED")){
+        window.location.href="index.html"
+    }
+}
+onloadcartnumbers();       
+display();                           
+    </script>
+</body>
+</html>
