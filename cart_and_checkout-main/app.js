@@ -76,7 +76,6 @@ function addCart($idProduct){
         //I just increased the quantity
         listCart[$idProduct].quantity++;
     }
-    document.cookie = "listCart=" + JSON.stringify(listCart) + "; path=/;";
 
     addCartToHTML();
 }
@@ -130,7 +129,6 @@ function changeQuantity($idProduct, $type){
             break;
     }
     // save new data in cookie
-    document.cookie = "listCart=" + JSON.stringify(listCart) + "; path=/;";
     // reload html view cart
     addCartToHTML();
 }
