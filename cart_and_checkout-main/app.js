@@ -76,7 +76,10 @@ function addCart($idProduct){
         //I just increased the quantity
         listCart[$idProduct].quantity++;
     }
-
+    var now = new Date();
+    now.setMonth( now.getMonth() + 1 );
+    document.cookie = "expires=" + now.toUTCString() + ";";
+document.cookie = "listCart=" + JSON.stringify(listCart) + "; path=/;";
     addCartToHTML();
 }
 addCartToHTML();
@@ -129,6 +132,10 @@ function changeQuantity($idProduct, $type){
             break;
     }
     // save new data in cookie
+    var now = new Date();
+    now.setMonth( now.getMonth() + 1 );
+    document.cookie = "expires=" + now.toUTCString() + ";";
+    document.cookie = "listCart=" + JSON.stringify(listCart) + "; path=/;";
     // reload html view cart
     addCartToHTML();
 }
